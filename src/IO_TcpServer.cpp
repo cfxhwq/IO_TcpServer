@@ -87,10 +87,10 @@ int main() {
 
 	while (1) {
 		struct sockaddr_in addr;
-		if (&rset != 0  )
-			if (FD_ISSET(listenfd, &rset)) {
-				cout << "listenfd exit in reset" << endl;
-			}
+
+		if (FD_ISSET(listenfd, &rset))
+			cout << "listenfd exit in reset" << endl;
+
 		rset = allset;
 		cout << "copy allset to rset finish" << endl;
 		nready = select(maxfd + 1, &rset, NULL, NULL, NULL);
